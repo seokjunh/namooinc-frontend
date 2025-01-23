@@ -1,0 +1,67 @@
+{
+  "LocaleSwitcher": {
+    "locale": "{locale, select, ko {Korean} en {English} other {Unknown}}"
+  },
+  "Navigation": {
+    "CompanyIntro": "About Us",
+    "Solution": "Solutions",
+    "Support": "Supports",
+    "Career": "Careers"
+  },
+  "DetailMenu": {
+    "CompanyIntro": {
+      "title": "About Us",
+      "contents": {
+        "intro": "Company Intro",
+        "ceo": "CEO Message",
+        "history": "History",
+        "vision": "Vision"
+      }
+    },
+    "Solution": {
+      "title": "Solutions",
+      "contents": {
+        "corecode": "CORECODE",
+        "p2e": "P2E",
+        "q2e": "Q2E",
+        "s2e": "S2E",
+        "u2e": "U2E"
+      }
+    },
+    "Support": {
+      "title": "Supports",
+      "contents": {
+        "notice": "Notice Board",
+        "download": "Downloads",
+        "visit": "Location"
+      }
+    },
+    "Career": {
+      "title": "Careers",
+      "contents": {
+        "jobs": "Job Openings",
+        "inquiry": "Recruitment Inquiries"
+      }
+    }
+  },
+  "CompanyIntro": {
+    "line1": "NAMOO I&C is",
+    "line2": "a smart factory solution company that creates greater value",
+    "line3": "smart factory solution specialist",
+    "line3Suffix": ".",
+    "line4": "We standardize increasingly complex and diverse data",
+    "line5": "and connect them to create a more intelligent and convenient world through",
+    "line6": "developing innovative solutions.",
+    "line7": "As a leading smart factory company",
+    "line8": "with proprietary patented solutions in the era of the 4th Industrial Revolution,",
+    "line9": "we lead innovation and strengthen future competitiveness in the manufacturing industry,",
+    "line10": "and we will do our best for our customers' business growth."
+  },
+  "CardSlider": {
+    "Description": "We will increase the competitiveness of the future digital technology industry."
+  },
+  "Footer": {
+    "address": "3rd floor, Daegyeong Building, 33-8 Dosan-daero 30-gil, Gangnam-gu, Seoul",
+    "content": "CEO Kyungsik Kim | Business registration number 211-87-61350"
+  }
+}
