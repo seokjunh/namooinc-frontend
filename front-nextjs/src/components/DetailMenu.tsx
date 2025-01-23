@@ -58,7 +58,7 @@ const DetailMenu = ({ onMouseEnter, onMouseLeave }: DetailMenuProps) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="flex justify-around border-t py-5 lg:px-[25rem]">
+      <div className="flex justify-around border-t py-5 lg:px-[25rem] border-b">
         {sections.map((section) => (
           <div key={section.key}>
             <div className="font-pretendard pb-2 text-lg font-bold">

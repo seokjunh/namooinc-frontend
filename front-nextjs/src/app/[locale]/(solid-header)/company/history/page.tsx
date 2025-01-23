@@ -1,8 +1,6 @@
-import CompanyHistory from "@/components/CompanyHistory"
+import CompanyHistory from "@/components/CompanyHistory";
 
 const page = () => {
-  return (
-    <CompanyHistory />
-  )
-}
-export default page
+  return <CompanyHistory />;
+};
+export default page;

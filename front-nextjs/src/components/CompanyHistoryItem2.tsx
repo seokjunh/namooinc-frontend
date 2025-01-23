@@ -68,11 +68,11 @@ const CompanyHistoryItem2 = () => {
                 {data.events.map((item, index) => (
                   <div
                     key={`${data.year}-${index}`}
-                    className="flex space-x-4 text-xs sm:text-lg"
+                    className="flex space-x-10 text-sm sm:space-x-12 sm:text-lg"
                   >
                     <div className="font-medium">{item.month}</div>
 
-                    <div>{item.content}</div>
+                    <div className="absolute">{item.content}</div>
                   </div>
                 ))}
               </div>

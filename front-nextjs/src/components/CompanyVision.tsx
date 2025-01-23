@@ -3,14 +3,14 @@ import Image from "next/image";
 const CompanyVision = () => {
   return (
     <div className="py-[6.25rem]">
-      <div className="relative flex h-64 items-center justify-center bg-slate-700">
+      <div className="relative flex h-44 items-center justify-center bg-slate-700 sm:h-64">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-white">
           비전
         </div>
       </div>
-      <div className="mx-auto max-w-xs mt-16 text-center md:max-w-xl lg:max-w-5xl space-y-10 sm:space-y-20">
+      <div className="mx-auto max-w-xs space-y-6 py-14 text-center text-lg sm:py-28 md:max-w-xl lg:max-w-5xl">
         <div className="space-y-4 sm:space-y-8">
-          <div className="sm:text-3xl text-xl font-bold">
+          <div className="text-sm font-bold md:text-xl lg:text-3xl">
             새 시대 글로벌 나무아이앤씨를 향한 비전
           </div>
           <Image
@@ -19,7 +19,7 @@ const CompanyVision = () => {
             width={960}
             height={164}
           />
-          <div className="sm:text-xl text-xs">
+          <div className="text-xs leading-normal sm:leading-normal md:text-base lg:text-xl">
             <div>
               데이터를 가장 잘 이해하고 가장 잘 다룰 수 있는 기업, 나무아이앤씨
             </div>
@@ -35,14 +35,16 @@ const CompanyVision = () => {
           </div>
         </div>
         <div className="space-y-4 sm:space-y-8">
-          <div className="sm:text-3xl text-xl font-bold">제공가치</div>
+          <div className="text-base font-bold md:text-xl lg:text-3xl">
+            제공가치
+          </div>
           <Image
             src={"/image/vision_img2.png"}
             alt={"vision_img2"}
             width={960}
             height={371}
           />
-          <div className="sm:space-y-2 sm:text-xl text-[0.7rem] space-y-1">
+          <div className="text-[0.7rem] leading-5 md:text-base md:leading-8 lg:text-xl lg:leading-10">
             <div>
               고객에게는 디지털 혁신을 통해 비즈니스 성장을 견인하는 회사
             </div>

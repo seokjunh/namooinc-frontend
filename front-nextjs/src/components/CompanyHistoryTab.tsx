@@ -28,14 +28,14 @@ const CompanyHistoryTab = ({ scrollRef, activeSection }: TabProps) => {
 
   return (
     <div
-      className={`flex items-center justify-center bg-white ${
+      className={`z-10 flex items-center justify-center bg-white ${
         isFixed ? "fixed top-[6.25rem] w-full" : ""
       }`}
     >
       {itemList.map((item, index) => (
         <button
           key={index}
-          className={`h-[5.5rem] w-[30rem] ${
+          className={`h-[4rem] w-[10rem] md:h-[4.5rem] md:w-[20rem] lg:h-[5.5rem] lg:w-[30rem] ${
             activeSection === index ? "border-b-4 border-[#78b237]" : ""
           }`}
           onClick={() => handleClick(index)}

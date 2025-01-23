@@ -68,7 +68,7 @@ const MobileMenu = ({ fill }: { fill: string }) => {
       </button>
 
       {isMenuOpen && (
-        <div className="absolute left-0 top-full w-full space-y-2 bg-white py-3 text-black shadow-xl md:hidden">
+        <div className="absolute left-0 top-full w-full space-y-2 border-b border-t bg-white py-3 text-black md:hidden">
           {sections.map((section) => (
             <div
               key={section.key}
