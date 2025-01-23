@@ -45,17 +45,11 @@
     }
   },
   "CompanyIntro": {
-    "line1": "NAMOO I&C is",
-    "line2": "a smart factory solution company that creates greater value",
-    "line3": "smart factory solution specialist",
-    "line3Suffix": ".",
-    "line4": "We standardize increasingly complex and diverse data",
-    "line5": "and connect them to create a more intelligent and convenient world through",
-    "line6": "developing innovative solutions.",
-    "line7": "As a leading smart factory company",
-    "line8": "with proprietary patented solutions in the era of the 4th Industrial Revolution,",
-    "line9": "we lead innovation and strengthen future competitiveness in the manufacturing industry,",
-    "line10": "and we will do our best for our customers' business growth."
+    "line1": "Namu I&C is a company that creates greater value by connecting customer values.",
+    "line2": "We specialize in smart factory solutions.",
+    "line3": "",
+    "line4": "We develop innovative solutions that standardize and connect increasingly complex and diverse data to create a smarter and more convenient world.",
+    "line5": "As a leading smart factory company with proprietary patented solutions, we strive to drive innovation in the manufacturing industry in the era of the 4th Industrial Revolution, strengthen future competitiveness, and dedicate ourselves to the growth of our customers' businesses."
   },
   "CardSlider": {
     "Description": "We will increase the competitiveness of the future digital technology industry."
