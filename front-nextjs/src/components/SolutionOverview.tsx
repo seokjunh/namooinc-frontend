@@ -21,8 +21,9 @@ const SolutionOverview = () => {
       <Image
         src={"/image/corecode_img3.png"}
         alt="img3"
-        width={1000}
-        height={1000}
+        width={688}
+        height={569}
+        className="w-full"
       />
       <div>
         <div>
@@ -41,8 +42,9 @@ const SolutionOverview = () => {
       <Image
         src={"/image/corecode_img4.png"}
         alt="img5"
-        width={1000}
-        height={1000}
+        width={688}
+        height={537}
+        className="w-full"
       />
     </div>
   );

@@ -23,8 +23,9 @@ const SolutionComposition = () => {
       <Image
         src={"/image/corecode_img6.png"}
         alt="img6"
-        width={1000}
-        height={1000}
+        width={713}
+        height={651}
+        className="w-full"
       />
     </div>
   );

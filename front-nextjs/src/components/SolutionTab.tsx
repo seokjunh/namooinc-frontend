@@ -40,7 +40,7 @@ const SolutionTab = ({ scrollRef, activeSection }: TabBarProps) => {
 
   return (
     <div
-      className={`grid h-auto min-h-[3.75rem] grid-cols-2 gap-4 bg-black p-4 text-white sm:px-[4.375rem] md:flex md:h-[3.75rem] md:items-center md:gap-6 lg:px-[22.5rem] ${
+      className={`grid grid-cols-2 gap-4 bg-black p-4 text-white sm:px-[4.375rem] md:flex md:h-[3.75rem] md:items-center md:gap-6 lg:px-[22.5rem] ${
         isFixed ? "fixed top-[6.25rem] w-full" : ""
       }`}
     >

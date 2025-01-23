@@ -1,6 +1,6 @@
 {
   "LocaleSwitcher": {
-    "locale": "{locale, select, ko {Korean} en {English} other {Unknown}}"
+    "locale": "{locale, select, ko {kor} en {Eng} other {Unknown}}"
   },
   "Navigation": {
     "CompanyIntro": "About Us",

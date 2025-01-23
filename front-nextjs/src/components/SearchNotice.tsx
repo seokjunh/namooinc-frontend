@@ -34,7 +34,7 @@ export default function SearchNotice() {
         <input
           {...register("searchTerm")}
           placeholder="검색어를 입력하세요."
-          className="w-[15rem] rounded-full border py-2 pl-4 pr-12 focus:outline-none sm:w-full"
+          className="rounded-full border py-2 pl-4 pr-12 focus:outline-none sm:w-full"
         />
         <button type="submit" className="absolute right-4">
           <ReadingGlasses />

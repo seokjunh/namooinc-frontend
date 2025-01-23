@@ -15,7 +15,7 @@ const gridItems = [
 
 const HomeBusinessIntro = () => {
   return (
-    <div className="mx-auto max-w-sm md:max-w-xl lg:max-w-5xl">
+    <div className="mx-auto max-w-xs md:max-w-xl lg:max-w-5xl">
       <div className="mb-[3.125rem] text-3xl font-black lg:text-6xl">
         Business
       </div>

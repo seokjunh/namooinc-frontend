@@ -31,7 +31,6 @@ const SolutionDesc = ({ scrollRef, setActiveSection }: DescProps) => {
               (el) => el === entry.target,
             );
             setActiveSection(idx);
-            console.log(idx);
           }
         });
       },
@@ -52,7 +51,7 @@ const SolutionDesc = ({ scrollRef, setActiveSection }: DescProps) => {
   }, [setActiveSection, scrollRef]);
 
   return (
-    <div className="mx-auto max-w-xs md:max-w-xl lg:max-w-5xl py-16 space-y-16">
+    <div className="mx-auto max-w-xs md:max-w-xl lg:max-w-3xl py-16 space-y-16">
       <div ref={setRef(0)} className="scroll-mt-44">
         <SolutionConcept />
       </div>

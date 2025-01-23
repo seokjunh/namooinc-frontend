@@ -23,14 +23,16 @@ const SolutionConcept = () => {
         <Image
           src={"/image/corecode_img1.png"}
           alt="img1"
-          width={1000}
-          height={1000}
+          width={688}
+          height={271}
+          className="w-full"
         />
         <Image
           src={"/image/corecode_img2.png"}
           alt="img2"
-          width={1000}
-          height={1000}
+          width={688}
+          height={577}
+          className="w-full"
         />
       </div>
     </div>

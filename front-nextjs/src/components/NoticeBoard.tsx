@@ -26,7 +26,11 @@ const NoticeBoard = async ({ searchParams }: NoticeBoardProps) => {
             게시판
           </h1>
         </div>
-        <div className="mb-4 flex justify-between">
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex">
+            총&nbsp;<div className="text-blue-500">{totalPosts}</div>건이
+            검색되었습니다.
+          </div>
           <SearchNotice />
           <NoticeWriteButton />
         </div>

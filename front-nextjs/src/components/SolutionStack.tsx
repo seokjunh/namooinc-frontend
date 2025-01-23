@@ -21,8 +21,9 @@ const SolutionStack = () => {
       <Image
         src={"/image/corecode_img5.png"}
         alt="img5"
-        width={1000}
-        height={1000}
+        width={688}
+        height={596}
+        className="w-full"
       />
     </div>
   );
