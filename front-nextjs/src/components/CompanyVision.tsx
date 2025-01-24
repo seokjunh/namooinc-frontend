@@ -2,11 +2,9 @@ import Image from "next/image";
 
 const CompanyVision = () => {
   return (
-    <div className="py-[6.25rem]">
+    <div className="pt-[6.25rem]">
       <div className="relative flex h-44 items-center justify-center bg-slate-700 sm:h-64">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold text-white">
-          비전
-        </div>
+        <div className="text-2xl font-bold text-white md:text-4xl">비전</div>
       </div>
       <div className="mx-auto max-w-xs space-y-6 py-14 text-center text-lg sm:py-28 md:max-w-xl lg:max-w-5xl">
         <div className="space-y-4 sm:space-y-8">

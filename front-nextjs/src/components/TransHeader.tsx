@@ -49,16 +49,12 @@ const TransHeader = () => {
         </div>
       </div>
 
-      <div
-        className={`fixed top-[6.25rem] z-10 w-full transition-transform duration-300 ${
-          showDetailMenu ? "translate-y-0" : "hidden -translate-y-full"
-        }`}
-      >
+      {showDetailMenu && (
         <DetailMenu
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         />
-      </div>
+      )}
     </div>
   );
 };

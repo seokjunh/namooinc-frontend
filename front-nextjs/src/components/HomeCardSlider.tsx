@@ -52,6 +52,7 @@ const HomeCardSlider = () => {
     >
       {sliderImages.map((image, index) => (
         <SwiperSlide key={index} className="relative">
+          {/* 배경 이미지 */}
           <Image
             src={image.src}
             alt={image.alt}
@@ -59,14 +60,14 @@ const HomeCardSlider = () => {
             priority={index === 0}
             className="object-cover"
           />
-          <div className="absolute left-[15%] top-[40%] flex items-center">
-            <div className="text-white">
-              <div className="mb-4 text-4xl font-extrabold md:text-6xl lg:text-7xl">
-                {image.title}
-              </div>
-              <div className="text-sm md:text-base lg:text-xl">
-                {t("Description")}
-              </div>
+
+          {/* 텍스트 영역 */}
+          <div className="absolute left-[15%] top-[40%] flex -translate-y-1/2 transform flex-col text-white">
+            <div className="mb-4 text-4xl font-extrabold md:text-6xl lg:text-7xl">
+              {image.title}
+            </div>
+            <div className="text-sm md:text-base lg:text-xl">
+              {t("Description")}
             </div>
           </div>
         </SwiperSlide>

@@ -1,6 +1,5 @@
 import { fetchPosts } from "@/lib/api";
 import SearchNotice from "./SearchNotice";
-import NoticeWriteButton from "./NoticeWriteButton";
 import NoticeList from "./NoticeList";
 import NoticePagination from "./NoticePagination";
 
@@ -19,39 +18,37 @@ const NoticeBoard = async ({ searchParams }: NoticeBoardProps) => {
   const totalPosts = response.totalElements;
 
   return (
-    <div className="py-[6.25rem]">
-      <div className="mx-auto max-w-6xl px-4 pt-16">
-        <div className="mb-10 text-center">
-          <h1 className="text-2xl font-semibold text-gray-900 sm:text-4xl">
-            게시판
-          </h1>
+    <div className="pt-[6.25rem]">
+      <div className="relative flex h-44 items-center justify-center sm:h-64">
+        <div className="text-2xl font-bold underline underline-offset-[1rem] md:text-4xl">
+          게시판
         </div>
-        <div className="mb-4 flex items-center justify-between">
-          <div className="flex">
-            총&nbsp;<div className="text-blue-500">{totalPosts}</div>건이
-            검색되었습니다.
-          </div>
+      </div>
+      <div className="mx-auto max-w-xs space-y-6 pb-14 sm:pb-28 md:max-w-2xl lg:max-w-6xl">
+        <div className="flex items-center justify-center">
           <SearchNotice />
-          <NoticeWriteButton />
         </div>
-        <div className="mt-6 border-t-2 border-gray-200">
-          <div className="overflow-x-auto">
-            <div className="grid grid-cols-5 border-b bg-gray-100 px-4 py-3 text-sm font-medium text-gray-700 sm:grid-cols-10">
-              <div className="text-center">No</div>
-              <div className="col-span-2 text-center sm:col-span-6">제목</div>
-              <div className="text-center">글쓴이</div>
-              <div className="text-center sm:col-span-2">작성일</div>
-            </div>
-            <NoticeList posts={posts} />
+        <div>
+          <div className="mb-2 text-xs md:text-base lg:text-lg">
+            총&nbsp;
+            <span className="font-semibold text-blue-500">{totalPosts}</span>
+            건이 검색되었습니다.
           </div>
-        </div>
-        <div className="mt-8 flex items-center justify-between">
-          <NoticePagination
-            currentPage={currentPage}
-            postPerPage={postPerPage}
-            totalPosts={totalPosts}
-            searchTerm={searchTerm}
-          />
+          <div className="grid grid-cols-5 border-b border-t-2 border-gray-200 bg-gray-100 py-1 text-center text-xs sm:grid-cols-10 sm:py-2 md:text-base lg:text-xl">
+            <div>No</div>
+            <div className="col-span-2 sm:col-span-6">제목</div>
+            <div>작성자</div>
+            <div className="sm:col-span-2">작성일</div>
+          </div>
+          <NoticeList posts={posts} />
+          <div className="mt-8">
+            <NoticePagination
+              currentPage={currentPage}
+              postPerPage={postPerPage}
+              totalPosts={totalPosts}
+              searchTerm={searchTerm}
+            />
+          </div>
         </div>
       </div>
     </div>

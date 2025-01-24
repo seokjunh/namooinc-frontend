@@ -15,30 +15,26 @@ const NoticeList = ({ posts }: NoticeListProps) => {
     router.push(`${pathName}/${id}`);
   };
   return (
-    <div className="overflow-hidden">
+    <div>
       {posts.map((post) => (
         <div key={post.id}>
           <div
-            className="grid cursor-pointer grid-cols-5 border-b p-4 text-sm text-gray-700 transition-all hover:bg-gray-50 hover:shadow-md sm:grid-cols-10"
+            className="grid cursor-pointer grid-cols-5 border-b py-1 text-xs hover:bg-gray-50 hover:shadow-md sm:grid-cols-10 sm:py-2 md:text-base lg:text-lg"
             onClick={() => handleClick(post.id)}
           >
             {/* 게시물 ID */}
-            <div className="text-center text-xs text-gray-500 sm:text-base">
-              {post.id}
-            </div>
+            <div className="text-center">{post.id}</div>
 
             {/* 제목 */}
-            <div className="col-span-2 text-center text-xs sm:col-span-6 sm:text-base">
+            <div className="col-span-2 text-center sm:col-span-6">
               {post.title}
             </div>
 
             {/* 작성자 */}
-            <div className="text-center text-xs sm:text-base">관리자</div>
+            <div className="text-center">관리자</div>
 
             {/* 작성일 */}
-            <div className="text-center text-xs text-gray-500 sm:col-span-2 sm:text-base">
-              {post.createdAt}
-            </div>
+            <div className="text-center sm:col-span-2">{post.createdAt}</div>
           </div>
         </div>
       ))}

@@ -13,7 +13,7 @@ import InputOTPForm from "./InputOTPForm";
 const NoticeWriteButton = () => {
   return (
     <Dialog>
-      <DialogTrigger className="rounded-xl bg-[#78b237] px-6 py-2 text-sm text-white hover:bg-[#78b237]/90">
+      <DialogTrigger className="rounded-xl bg-[#78b237] px-6 py-2 text-white hover:bg-[#78b237]/90">
         글쓰기
       </DialogTrigger>
       <DialogContent className="mx-auto flex max-w-xs flex-col items-start rounded-xl sm:max-w-[25rem]">

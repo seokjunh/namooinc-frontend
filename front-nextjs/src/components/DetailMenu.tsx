@@ -54,11 +54,11 @@ const DetailMenu = ({ onMouseEnter, onMouseLeave }: DetailMenuProps) => {
   const t = useTranslations("DetailMenu");
   return (
     <div
-      className="w-full bg-white"
+      className="fixed top-[6.25rem] z-20 w-full border-b border-t bg-white"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="flex justify-around border-t py-5 lg:px-[25rem] border-b">
+      <div className="flex justify-around py-5 lg:px-[25rem]">
         {sections.map((section) => (
           <div key={section.key}>
             <div className="font-pretendard pb-2 text-lg font-bold">

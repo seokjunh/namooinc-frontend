@@ -23,26 +23,26 @@ const DownloadFile = () => {
   };
 
   return (
-    <div className="py-[6.25rem]">
-      <div className="mx-auto max-w-xs pt-16 md:max-w-xl lg:max-w-[90rem]">
-        <div className="mb-b mb-[5rem] text-center sm:text-4xl text-2xl font-bold underline underline-offset-[1rem]">
+    <div className="pt-[6.25rem]">
+      <div className="relative flex h-44 items-center justify-center sm:h-64">
+        <div className="text-2xl font-bold underline underline-offset-[1rem] md:text-4xl">
           자료실
         </div>
-        <div className="grid gap-5 lg:grid-cols-2">
-          {pdfList.map((item, index) => (
-            <div key={index}>
-              <div className="w-full rounded-xl bg-gray-100 sm:p-[2.5rem] p-[1rem] shadow-lg md:text-xl lg:text-2xl text-xs">
-                <div className="sm:mb-6 mb-3 font-medium">{item.title}</div>
-                <button
-                  className="font-normal text-[#78b237]"
-                  onClick={() => DownloadHandler(item.file)}
-                >
-                  다운로드 →
-                </button>
-              </div>
+      </div>
+      <div className="mx-auto grid max-w-xs gap-5 pb-14 sm:pb-28 md:max-w-xl lg:max-w-7xl lg:grid-cols-2">
+        {pdfList.map((item, index) => (
+          <div key={index}>
+            <div className="w-full rounded-xl bg-gray-100 p-[1rem] text-xs shadow-lg sm:p-[2.5rem] md:text-xl">
+              <div className="mb-3 font-medium sm:mb-6">{item.title}</div>
+              <button
+                className="font-normal text-[#78b237]"
+                onClick={() => DownloadHandler(item.file)}
+              >
+                다운로드 →
+              </button>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

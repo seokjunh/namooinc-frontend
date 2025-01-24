@@ -43,9 +43,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`&{pretendard.variable}`}>
-      <body className={pretendard.className}>
+      <body className={`${pretendard.className} flex min-h-screen flex-col`}>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <main className="flex-grow">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

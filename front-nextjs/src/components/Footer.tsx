@@ -9,10 +9,10 @@ const Footer = () => {
           {t("companyName")}
         </div>
         <div>
-          <div className="md:text-base text-sm lg:text-lg">{t("address")}</div>
-          <div className="md:text-base text-sm lg:text-lg">{t("content")}</div>
+          <div className="text-sm md:text-base lg:text-lg">{t("address")}</div>
+          <div className="text-sm md:text-base lg:text-lg">{t("content")}</div>
         </div>
-        <div className="md:text-base text-sm lg:text-lg">
+        <div className="text-sm md:text-base lg:text-lg">
           © {new Date().getFullYear()} NAMOO I&C. All Rights Reserved.
         </div>
       </div>

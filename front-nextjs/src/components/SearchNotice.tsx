@@ -30,13 +30,13 @@ export default function SearchNotice() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="relative flex items-center">
+      <div className="flex items-center border rounded-full py-2 px-6">
         <input
           {...register("searchTerm")}
           placeholder="검색어를 입력하세요."
-          className="rounded-full border py-2 pl-4 pr-12 focus:outline-none sm:w-full"
+          className="focus:outline-none w-[10rem] md:w-[20rem] lg:w-[30rem]"
         />
-        <button type="submit" className="absolute right-4">
+        <button type="submit">
           <ReadingGlasses />
         </button>
       </div>
