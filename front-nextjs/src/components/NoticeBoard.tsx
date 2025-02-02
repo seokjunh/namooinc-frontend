@@ -24,7 +24,7 @@ const NoticeBoard = async ({ searchParams }: NoticeBoardProps) => {
           게시판
         </div>
       </div>
-      <div className="mx-auto max-w-xs space-y-6 pb-14 sm:pb-28 md:max-w-2xl lg:max-w-6xl">
+      <div className="mx-auto max-w-xs space-y-6 pb-14 sm:pb-28 md:max-w-2xl lg:max-w-5xl">
         <div className="flex items-center justify-center">
           <SearchNotice />
         </div>
@@ -36,11 +36,21 @@ const NoticeBoard = async ({ searchParams }: NoticeBoardProps) => {
           </div>
           <div className="grid grid-cols-5 border-b border-t-2 border-gray-200 bg-gray-100 py-1 text-center text-xs sm:grid-cols-10 sm:py-2 md:text-base lg:text-xl">
             <div>No</div>
-            <div className="col-span-2 sm:col-span-6">제목</div>
-            <div>작성자</div>
+            <div className="col-span-3 sm:col-span-7">제목</div>
             <div className="sm:col-span-2">작성일</div>
           </div>
-          <NoticeList posts={posts} />
+          {totalPosts === 0 ? (
+            <div className="py-4 text-center text-lg font-semibold text-gray-500">
+              게시물이 없습니다.
+            </div>
+          ) : (
+            <NoticeList
+              posts={posts}
+              totalPosts={totalPosts}
+              currentPage={currentPage}
+              postPerPage={postPerPage}
+            />
+          )}
           <div className="mt-8">
             <NoticePagination
               currentPage={currentPage}

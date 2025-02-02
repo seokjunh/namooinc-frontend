@@ -1,6 +1,6 @@
 import { post } from "./type";
 
-export async function fetchPosts(page:string, title?:string) {
+export async function fetchPosts(page: string, title?: string) {
   let url = `http://localhost:8080/notice/read?page=${page}`;
 
   if (title) {
@@ -8,21 +8,23 @@ export async function fetchPosts(page:string, title?:string) {
   }
 
   const response = await fetch(url);
+ 
   const data = await response.json();
-  const { content, number, size, totalElements} = data;
+
+  const { content, number, size, totalElements } = data;
 
   return {
     content,
     number,
     size,
-    totalElements
+    totalElements,
   };
 }
 
 export async function dynamicFetchPost(id: number) {
-  const responce = await fetch(`http://localhost:8080/notice/read/${id}`);
-
-  const detailPost: post = await responce.json();
+  const response = await fetch(`http://localhost:8080/notice/read/${id}`);
+  
+  const detailPost: post = await response.json();
 
   return { detailPost };
 }

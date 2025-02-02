@@ -3,12 +3,11 @@ export interface post {
   title: string;
   content: string;
   image?: file[];
-  file?: file[];
+  files?: file[];
   createdAt: string;
   updatedAt?: string;
 }
 
 export interface file {
-  id: string;
-  name: string;
+  saveName: string;
 }
