@@ -9,5 +9,6 @@ export interface post {
 }
 
 export interface file {
+  id: number;
   saveName: string;
 }

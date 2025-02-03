@@ -39,12 +39,8 @@ const NoticeDetail = ({ post }: NoticeDetailProps) => {
             </div>
           </div>
           <div className="border"></div>
-          <div>
-            {post.files &&
-              post.files.map((item, idx) => (
-                <div key={idx}>{item.saveName}</div>
-              ))}
-            <FileCarousel />
+          <div className="space-y-10">
+            {post.files ? <FileCarousel files={post.files} /> : ""}
             <div className="">{post.content}</div>
           </div>
           <div className="flex justify-end">
