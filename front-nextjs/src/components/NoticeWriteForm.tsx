@@ -59,15 +59,11 @@ const NoticeWriteForm = () => {
         throw new Error("게시물 등록에 실패했습니다.");
       }
 
-      alert("게시물이 성공적으로 등록되었습니다.");
+      alert("게시물이 등록되었습니다.");
       router.push("/support/notice");
     } catch (error) {
       console.error("Error creating post:", error);
-      alert(
-        error instanceof Error
-          ? error.message + "1"
-          : "게시물 등록에 실패했습니다.",
-      );
+      alert("게시물 등록이 실패했습니다.");
     } finally {
       setIsSubmitting(false);
     }

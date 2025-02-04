@@ -11,7 +11,11 @@ interface FileFormProps {
   isSubmitting: boolean;
 }
 
-const NoticeFileForm = ({ files, setFiles, isSubmitting }: FileFormProps) => {
+const NoticeFileForm = ({
+  files,
+  setFiles,
+  isSubmitting,
+}: FileFormProps) => {
   const router = useRouter();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

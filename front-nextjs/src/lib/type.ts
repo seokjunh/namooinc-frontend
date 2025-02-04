@@ -2,13 +2,14 @@ export interface post {
   id: string;
   title: string;
   content: string;
-  image?: file[];
-  files?: file[];
+  image?: NoticeFile[];
+  files?: NoticeFile[];
   createdAt: string;
   updatedAt?: string;
 }
 
-export interface file {
+export interface NoticeFile {
   id: number;
+  originalName: string;
   saveName: string;
 }

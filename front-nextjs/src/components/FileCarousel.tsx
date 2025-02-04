@@ -13,27 +13,33 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "./ui/card";
+import { file } from "@/lib/type";
 // import File from "../../public/svg/File";
 
-interface fileData {
-  id: number;
-  saveName: string;
-}
-
 interface fileProps {
-  files: fileData[];
+  files: file[];
 }
 
 const truncate = (str: string, n: number) => {
   return str.length > n ? str.substring(0, n - 1) + "..." : str;
 };
 
-const downloadFile = async (id: number) => {
-  const response = await fetch(`http://localhost:8080/file/download/${id}`);
+const downloadFile = async (originalName: string, saveName: string) => {
+  const response = await fetch(
+    `http://localhost:8080/files/download?savedFileName=${saveName}`,
+  );
 
-  const data = await response.json();
+  const blob = await response.blob();
 
-  console.log(data);
+  const downloadUrl = window.URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = downloadUrl;
+  link.download = originalName;
+
+  link.click();
+
+  window.URL.revokeObjectURL(downloadUrl);
 };
 
 const FileCarousel = ({ files }: fileProps) => {
@@ -58,9 +64,11 @@ const FileCarousel = ({ files }: fileProps) => {
                     <CardContent className="flex items-center justify-center p-0">
                       <button
                         className="text-lg font-semibold"
-                        onClick={() => downloadFile(file.id)}
+                        onClick={() =>
+                          downloadFile(file.originalName, file.saveName)
+                        }
                       >
-                        {truncate(file.saveName, 10)}
+                        {truncate(file.originalName, 10)}
                       </button>
                     </CardContent>
                   </Card>
