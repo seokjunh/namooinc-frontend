@@ -17,7 +17,7 @@ import { Textarea } from "./ui/textarea";
 import { useRouter } from "@/i18n/rounting";
 import NoticeFileForm from "./NoticeFileForm";
 import { post } from "@/lib/type";
-
+import NoticeDeleteButton from "./NoticeDeleteButton";
 
 interface PatchNoticeProps {
   post: post;
@@ -85,53 +85,70 @@ const NoticePatchForm = ({ post }: PatchNoticeProps) => {
   };
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4 rounded-lg border p-10 shadow-md"
-      >
-        <FormField
-          control={form.control}
-          name="title"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="font-medium">제목</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="제목을 입력하세요."
-                  {...field}
-                  className="focus:border-[#78b237]"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
+    <div className="space-y-2">
+      <div className="flex justify-end">
+        <NoticeDeleteButton post_id={post.id} />
+      </div>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-4 rounded-lg border p-10 shadow-md"
+        >
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="font-medium">제목</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="제목을 입력하세요."
+                    {...field}
+                    className="focus:border-[#78b237]"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="content"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="font-medium">내용</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="내용을 입력하세요."
+                    rows={10}
+                    {...field}
+                    className="focus:border-[#78b237]"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <NoticeFileForm
+            files={files}
+            setFiles={setFiles}
+            isSubmitting={isSubmitting}
+          />
+          {post.files && post.files.length > 0 && (
+            <div className="grid w-[15rem] grid-cols-2 gap-2">
+              {post.files.map((file, idx) => (
+                <div
+                  key={idx}
+                  className="flex gap-2 rounded-full border px-3 py-1 text-sm"
+                >
+                  <div className="truncate">{file.originalName}</div>
+                </div>
+              ))}
+            </div>
           )}
-        />
-        <FormField
-          control={form.control}
-          name="content"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="font-medium">내용</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="내용을 입력하세요."
-                  rows={10}
-                  {...field}
-                  className="focus:border-[#78b237]"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <NoticeFileForm
-          files={files}
-          setFiles={setFiles}
-          isSubmitting={isSubmitting}
-        />
-      </form>
-    </Form>
+        </form>
+      </Form>
+    </div>
   );
 };
 

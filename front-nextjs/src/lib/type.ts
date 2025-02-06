@@ -1,5 +1,5 @@
 export interface post {
-  id: string;
+  id: number;
   title: string;
   content: string;
   image?: NoticeFile[];
@@ -8,7 +8,7 @@ export interface post {
   updatedAt?: string;
 }
 
-export interface NoticeFile {
+export interface NoticeFile extends File {
   id: number;
   originalName: string;
   saveName: string;

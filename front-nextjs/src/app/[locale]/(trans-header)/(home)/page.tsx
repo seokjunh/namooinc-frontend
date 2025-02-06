@@ -6,7 +6,7 @@ const page = () => {
   return (
     <div>
       <HomeCardSlider />
-      <div className="sm:py-28 sm:space-y-28 py-14 space-y-14">
+      <div className="space-y-14 py-14 sm:space-y-28 sm:py-28">
         <HomeCompanyIntro />
         <HomeBusinessIntro />
       </div>

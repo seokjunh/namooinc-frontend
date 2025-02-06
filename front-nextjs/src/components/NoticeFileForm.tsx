@@ -11,11 +11,7 @@ interface FileFormProps {
   isSubmitting: boolean;
 }
 
-const NoticeFileForm = ({
-  files,
-  setFiles,
-  isSubmitting,
-}: FileFormProps) => {
+const NoticeFileForm = ({ files, setFiles, isSubmitting }: FileFormProps) => {
   const router = useRouter();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,13 +63,13 @@ const NoticeFileForm = ({
         </div>
       </div>
       {files.length > 0 && (
-        <div className="grid w-[15rem] grid-cols-2 gap-2 sm:w-[30rem]">
+        <div className="grid w-[15rem] grid-cols-2 gap-2">
           {files.map((file, idx) => (
             <div
               key={idx}
               className="flex gap-2 rounded-full border px-3 py-1 text-sm"
             >
-              <span className="max-w-[200px] truncate">{file.name}</span>
+              <div className="truncate">{file.name}</div>
               <button
                 type="button"
                 onClick={() => handleFileDelete(file.name)}

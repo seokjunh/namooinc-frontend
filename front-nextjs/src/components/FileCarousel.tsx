@@ -13,16 +13,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "./ui/card";
-import { file } from "@/lib/type";
+import { NoticeFile } from "@/lib/type";
 // import File from "../../public/svg/File";
 
 interface fileProps {
-  files: file[];
+  files: NoticeFile[];
 }
-
-const truncate = (str: string, n: number) => {
-  return str.length > n ? str.substring(0, n - 1) + "..." : str;
-};
 
 const downloadFile = async (originalName: string, saveName: string) => {
   const response = await fetch(
@@ -63,12 +59,12 @@ const FileCarousel = ({ files }: fileProps) => {
                   <Card className="shadow-none">
                     <CardContent className="flex items-center justify-center p-0">
                       <button
-                        className="text-lg font-semibold"
+                        className="truncate text-lg font-semibold"
                         onClick={() =>
                           downloadFile(file.originalName, file.saveName)
                         }
                       >
-                        {truncate(file.originalName, 10)}
+                        {file.originalName}
                       </button>
                     </CardContent>
                   </Card>

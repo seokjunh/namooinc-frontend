@@ -4,6 +4,7 @@ import NoticePatchForm from "./NoticePatchForm";
 const NoticePatch = async ({ params }: { params: Promise<{ id: number }> }) => {
   const { id } = await params;
   const { detailPost } = await dynamicFetchPost(id);
+
   return (
     <div className="py-[6.25rem]">
       <div className="mb-b mb-[5rem] pt-16 text-center text-2xl font-bold underline underline-offset-[1rem] sm:text-4xl">

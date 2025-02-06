@@ -1,11 +1,11 @@
 "use client";
 
 import { Button } from "./ui/button";
-// import Image from "next/image";
 import { post } from "@/lib/type";
 import FileCarousel from "./FileCarousel";
-// import NoticeEditButton from "./NoticeEditButton";
+import NoticeEditButton from "./NoticeEditButton";
 import { useRouter } from "@/i18n/rounting";
+import SessionCheck from "./SessionCheck";
 
 interface NoticeDetailProps {
   post: post;
@@ -40,10 +40,17 @@ const NoticeDetail = ({ post }: NoticeDetailProps) => {
           </div>
           <div className="border"></div>
           <div className="space-y-10">
-            {post.files ? <FileCarousel files={post.files} /> : ""}
+            {post.files && post.files?.length > 0 ? (
+              <FileCarousel files={post.files} />
+            ) : (
+              ""
+            )}
             <div className="">{post.content}</div>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end space-x-4">
+            <SessionCheck>
+              <NoticeEditButton />
+            </SessionCheck>
             <Button
               type="button"
               onClick={ToNoticeHandler}

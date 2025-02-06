@@ -1,30 +1,21 @@
-"use client";
+"use client"
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import InputOTPForm from "./InputOTPForm";
+import { usePathname, useRouter } from "@/i18n/rounting";
+import { Button } from "./ui/button";
 
 const NoticeWriteButton = () => {
+  const router = useRouter();
+  const pathName = usePathname();
+  const writeHandler = () => {
+    router.push(`${pathName}/write`);
+  };
   return (
-    <Dialog>
-      <DialogTrigger className="rounded-xl bg-[#78b237] px-6 py-2 text-white hover:bg-[#78b237]/90">
-        글쓰기
-      </DialogTrigger>
-      <DialogContent className="mx-auto flex max-w-xs flex-col items-start rounded-xl sm:max-w-[25rem]">
-        <DialogHeader>
-          <DialogTitle>Enter Passkey</DialogTitle>
-          <DialogDescription>패스키를 입력해주세요.</DialogDescription>
-        </DialogHeader>
-        <InputOTPForm />
-      </DialogContent>
-    </Dialog>
+    <Button
+      className="bg-[#78b237] hover:bg-[#78b237]/90"
+      onClick={writeHandler}
+    >
+      글쓰기
+    </Button>
   );
 };
-
 export default NoticeWriteButton;

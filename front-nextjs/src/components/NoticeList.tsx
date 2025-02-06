@@ -1,53 +1,67 @@
-"use client";
-
-import { usePathname, useRouter } from "@/i18n/rounting";
+import { fetchPosts } from "@/lib/api";
 import { post } from "@/lib/type";
+import NoticePagination from "./NoticePagination";
+import PostContent from "./PostContent";
+import EditAuthButton from "./EditAuthButton";
 
-interface NoticeListProps {
-  posts: post[];
-  totalPosts: number;
-  currentPage: number;
-  postPerPage: number;
+interface NoticeBoardProps {
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }
 
-const NoticeList = ({
-  posts,
-  totalPosts,
-  currentPage,
-  postPerPage,
-}: NoticeListProps) => {
-  const router = useRouter();
-  const pathName = usePathname();
+const NoticeList = async ({ searchParams }: NoticeBoardProps) => {
+  const { page = "1", searchTerm = "" } = await searchParams;
 
-  const handleClick = (id: string) => {
-    router.push(`${pathName}/${id}`);
-  };
+  const response = await fetchPosts(page, searchTerm);
 
-  const getNoticeNumber = (idx: number) => {
-    const no = totalPosts - postPerPage * (currentPage - 1) - idx;
-    return no;
-  };
+  const posts: post[] = response.content;
+  const currentPage = response.number + 1;
+  const postPerPage = response.size;
+  const totalPosts = response.totalElements;
 
-  const getConvertDate = (createdAt: string) => {
-    const date = createdAt.split("T")[0].split("-").join(".");
-    return date;
-  };
   return (
     <div>
-      {posts.map((post, idx) => (
-        <div key={post.id}>
-          <div
-            className="grid cursor-pointer grid-cols-5 border-b py-1 text-center text-xs hover:bg-gray-50 hover:shadow-md sm:grid-cols-10 sm:py-2 md:text-base lg:text-lg"
-            onClick={() => handleClick(post.id)}
-          >
-            <div>{getNoticeNumber(idx)}</div>
-            <div className="col-span-3 sm:col-span-7">{post.title}</div>
-            <div className="sm:col-span-2">
-              {getConvertDate(post.createdAt)}
-            </div>
-          </div>
+      <div className="mb-2 flex items-center justify-between">
+        <div className="text-xs md:text-base lg:text-lg">
+          총&nbsp;
+          <span className="font-semibold text-blue-500">{totalPosts}</span>
+          건이 검색되었습니다.
         </div>
-      ))}
+        <EditAuthButton />
+      </div>
+      <div>
+        <div className="grid grid-cols-5 border-b border-t-2 border-gray-200 bg-gray-100 py-1 text-center text-xs sm:grid-cols-10 sm:py-2 md:text-base lg:text-xl">
+          <div>No</div>
+          <div className="col-span-3 sm:col-span-7">제목</div>
+          <div className="sm:col-span-2">작성일</div>
+        </div>
+        {totalPosts === 0 ? (
+          <div className="py-4 text-center text-lg font-semibold text-gray-500">
+            게시물이 없습니다.
+          </div>
+        ) : (
+          <div>
+            {posts.map((post, idx) => (
+              <div key={idx}>
+                <PostContent
+                  post={post}
+                  idx={idx}
+                  totalPosts={totalPosts}
+                  currentPage={currentPage}
+                  postPerPage={postPerPage}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+        <div className="mt-8 flex">
+          <NoticePagination
+            currentPage={currentPage}
+            postPerPage={postPerPage}
+            totalPosts={totalPosts}
+            searchTerm={searchTerm}
+          />
+        </div>
+      </div>
     </div>
   );
 };
