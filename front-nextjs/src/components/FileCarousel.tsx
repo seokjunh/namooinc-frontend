@@ -27,6 +27,8 @@ const downloadFile = async (originalName: string, saveName: string) => {
 
   const blob = await response.blob();
 
+  console.log(blob);
+
   const downloadUrl = window.URL.createObjectURL(blob);
 
   const link = document.createElement("a");

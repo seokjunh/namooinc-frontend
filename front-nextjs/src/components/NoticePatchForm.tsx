@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,6 +18,8 @@ import { useRouter } from "@/i18n/rounting";
 import NoticeFileForm from "./NoticeFileForm";
 import { post } from "@/lib/type";
 import NoticeDeleteButton from "./NoticeDeleteButton";
+import { Button } from "./ui/button";
+import Close from "../../public/svg/Close";
 
 interface PatchNoticeProps {
   post: post;
@@ -36,6 +38,42 @@ const NoticePatchForm = ({ post }: PatchNoticeProps) => {
   const router = useRouter();
   const [files, setFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
+
+  useEffect(() => {
+    const fetchFile = async () => {
+      if (post.files && post.files.length) {
+        try {
+          const prevFiles = [];
+
+          for (const element of post.files) {
+            const response = await fetch(
+              `http://localhost:8080/files/download?savedFileName=${element.saveName}`,
+            );
+
+            const blob = await response.blob();
+
+            const file = new File([blob], element.saveName, {
+              type: blob.type,
+            });
+
+            prevFiles.push(file);
+          }
+
+          setFiles(prevFiles);
+        } catch (e) {
+          console.error(e);
+        }
+      } else {
+        setFiles([]);
+      }
+    };
+    fetchFile();
+  }, [post]);
+
+  const handleFileDelete = (fileName: string) => {
+    setFiles((prev) => prev.filter((file) => file.name !== fileName));
+  };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -105,6 +143,11 @@ const NoticePatchForm = ({ post }: PatchNoticeProps) => {
                     placeholder="제목을 입력하세요."
                     {...field}
                     className="focus:border-[#78b237]"
+                    onChange={(e) => {
+                      field.onChange(e);
+                      console.log("Title changed:", e.target.value);
+                      setIsChanging(true);
+                    }}
                   />
                 </FormControl>
                 <FormMessage />
@@ -123,25 +166,52 @@ const NoticePatchForm = ({ post }: PatchNoticeProps) => {
                     rows={10}
                     {...field}
                     className="focus:border-[#78b237]"
+                    onChange={(e) => {
+                      field.onChange(e);
+                      console.log("Content changed:", e.target.value);
+                      setIsChanging(true);
+                    }}
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <NoticeFileForm
-            files={files}
-            setFiles={setFiles}
-            isSubmitting={isSubmitting}
-          />
-          {post.files && post.files.length > 0 && (
+          <div className="flex items-center justify-between">
+            <NoticeFileForm setFiles={setFiles} setIsChanging={setIsChanging} />
+            <div className="flex space-x-2">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => router.back()}
+                className="border-[#78b237] text-[#78b237] hover:bg-[#78b237]/10"
+              >
+                취소
+              </Button>
+              <Button
+                type="submit"
+                className="bg-[#78b237] hover:bg-[#78b237]/90"
+                disabled={isChanging ? false : true}
+              >
+                {isSubmitting ? "등록 중..." : "등록"}
+              </Button>
+            </div>
+          </div>
+          {files.length > 0 && (
             <div className="grid w-[15rem] grid-cols-2 gap-2">
-              {post.files.map((file, idx) => (
+              {files.map((file, idx) => (
                 <div
                   key={idx}
                   className="flex gap-2 rounded-full border px-3 py-1 text-sm"
                 >
-                  <div className="truncate">{file.originalName}</div>
+                  <div className="truncate">{file.name}</div>
+                  <button
+                    type="button"
+                    onClick={() => handleFileDelete(file.name)}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    <Close />
+                  </button>
                 </div>
               ))}
             </div>

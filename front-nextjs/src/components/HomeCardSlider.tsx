@@ -52,7 +52,7 @@ const HomeCardSlider = () => {
             priority={index === 0}
             className="object-cover"
           />
-          <div className="absolute left-[15%] top-[40%] flex -translate-y-1/2 transform flex-col text-white">
+          <div className="absolute left-[15%] top-[50%] flex -translate-y-1/2 transform flex-col text-white">
             <div className="mb-4 text-4xl font-extrabold md:text-6xl lg:text-7xl">
               {image.title}
             </div>

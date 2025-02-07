@@ -17,14 +17,14 @@ const NoticeBoard = ({ searchParams }: NoticeBoardProps) => {
           게시판
         </div>
       </div>
-      <div className="mx-auto max-w-xs space-y-6 pb-14 sm:pb-28 md:max-w-2xl lg:max-w-5xl">
+      <div className="mx-auto max-w-sm space-y-6 pb-14 sm:pb-28 md:max-w-2xl lg:max-w-5xl">
         <div className="flex items-center justify-center">
           <SearchNotice />
         </div>
         <div className="relative">
           <NoticeList searchParams={searchParams} />
           <SessionCheck>
-            <div className="absolute bottom-1 right-0">
+            <div className="absolute bottom-0 right-0 sm:scale-100 scale-75 ">
               <NoticeWriteButton />
             </div>
           </SessionCheck>

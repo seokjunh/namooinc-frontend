@@ -36,12 +36,12 @@ const PostContent = ({
   };
   return (
     <div
-      className="grid cursor-pointer grid-cols-5 border-b py-1 text-center text-xs hover:bg-gray-50 hover:shadow-md sm:grid-cols-10 sm:py-2 md:text-base lg:text-lg"
+      className="grid cursor-pointer border-b py-1 text-center text-xs hover:bg-gray-50 hover:shadow-md grid-cols-12 sm:py-2 md:text-base lg:text-lg"
       onClick={() => handleClick(post.id)}
     >
-      <div>{getNoticeNumber(idx)}</div>
-      <div className="col-span-3 sm:col-span-7">{post.title}</div>
-      <div className="sm:col-span-2">{getConvertDate(post.createdAt)}</div>
+      <div className="col-span-1">{getNoticeNumber(idx)}</div>
+      <div className="col-span-9 xs:pl-[4.5rem] pl-[1.5rem]">{post.title}</div>
+      <div className="col-span-2">{getConvertDate(post.createdAt)}</div>
     </div>
   );
 };

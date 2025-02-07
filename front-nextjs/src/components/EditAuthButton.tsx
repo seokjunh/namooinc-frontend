@@ -9,14 +9,14 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import PasskeyForm from "./PasskeyForm";
-import Rocker from "../../public/svg/Rocker";
 
 const EditAuthButton = () => {
   return (
     <Dialog>
-      <DialogTrigger className="flex whitespace-nowrap">
-        <div className="text-gray-400">편집</div>
-        <Rocker />
+      <DialogTrigger>
+        <div className="flex">
+          <div className="text-xs md:text-base lg:text-lg text-gray-400">[편집]</div>
+        </div>
       </DialogTrigger>
       <DialogContent className="mx-auto max-w-xs rounded-xl sm:max-w-[25rem]">
         <DialogHeader>
