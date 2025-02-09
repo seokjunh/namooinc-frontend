@@ -9,7 +9,7 @@ interface DetailMenuProps {
 const sections = [
   {
     key: "CompanyIntro",
-    contentKeys: ["intro", "ceo", "history", "vision"],
+    contentKeys: ["intro", "greeting", "history", "vision"],
   },
   {
     key: "Solution",

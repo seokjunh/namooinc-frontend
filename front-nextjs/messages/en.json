@@ -13,7 +13,7 @@
       "title": "About Us",
       "contents": {
         "intro": "Company Intro",
-        "ceo": "CEO Message",
+        "greeting": "Our Message",
         "history": "History",
         "vision": "Vision"
       }
