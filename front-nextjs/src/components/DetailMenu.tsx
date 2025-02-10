@@ -28,7 +28,7 @@ const sections = [
 const sectionUrl: Record<string, Record<string, string>> = {
   CompanyIntro: {
     intro: "/company/intro",
-    ceo: "/company/ceo",
+    greeting: "/company/greeting",
     history: "/company/history",
     vision: "/company/vision",
   },

@@ -1,4 +1,4 @@
-const CeoGreeting = () => {
+const Greeting = () => {
   return (
     <div className="pt-[6.25rem]">
       <div className="relative flex h-44 items-center justify-center bg-slate-700 sm:h-64">
@@ -53,4 +53,4 @@ const CeoGreeting = () => {
     </div>
   );
 };
-export default CeoGreeting;
+export default Greeting;

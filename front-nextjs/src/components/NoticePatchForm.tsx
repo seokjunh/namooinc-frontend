@@ -53,7 +53,7 @@ const NoticePatchForm = ({ post }: PatchNoticeProps) => {
 
             const blob = await response.blob();
 
-            const file = new File([blob], element.saveName, {
+            const file = new File([blob], element.originalName, {
               type: blob.type,
             });
 
@@ -73,6 +73,7 @@ const NoticePatchForm = ({ post }: PatchNoticeProps) => {
 
   const handleFileDelete = (fileName: string) => {
     setFiles((prev) => prev.filter((file) => file.name !== fileName));
+    setIsChanging(true);
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -113,7 +114,7 @@ const NoticePatchForm = ({ post }: PatchNoticeProps) => {
       }
 
       alert("게시물이 수정되었습니다.");
-      router.push("/support/notice");
+      router.push(`/support/notice/${post.id}`);
     } catch (error) {
       console.error("Error creating post:", error);
       alert("게시물 수정이 실패했습니다.");
@@ -178,7 +179,7 @@ const NoticePatchForm = ({ post }: PatchNoticeProps) => {
             )}
           />
           <div className="flex items-center justify-between">
-            <NoticeFileForm setFiles={setFiles} setIsChanging={setIsChanging} />
+            <NoticeFileForm setFiles={setFiles} setIsChanging={setIsChanging}/>
             <div className="flex space-x-2">
               <Button
                 type="button"

@@ -20,6 +20,7 @@ const NoticePagination = ({
   totalPosts,
   searchTerm,
 }: BoardPaginationProps) => {
+
   let totalPages = 0;
 
   if (totalPosts) {
@@ -140,9 +141,9 @@ const NoticePagination = ({
               href={`?page=${
                 currentPage + 1
               }&pageSize=${postPerPage}&searchTerm=${searchTerm}`}
-              aria-disabled={currentPage === totalPages}
+              aria-disabled={currentPage === totalPages || !totalPosts}
               className={
-                currentPage === totalPages
+                currentPage === totalPages || !totalPosts
                   ? "pointer-events-none opacity-50"
                   : ""
               }
@@ -150,9 +151,9 @@ const NoticePagination = ({
           ) : (
             <PaginationNext
               href={`?page=${currentPage + 1}&pageSize=${postPerPage}`}
-              aria-disabled={currentPage === totalPages}
+              aria-disabled={currentPage === totalPages || !totalPosts}
               className={
-                currentPage === totalPages
+                currentPage === totalPages || !totalPosts
                   ? "pointer-events-none opacity-50"
                   : ""
               }

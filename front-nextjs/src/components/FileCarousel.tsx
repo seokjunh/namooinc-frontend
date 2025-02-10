@@ -27,8 +27,6 @@ const downloadFile = async (originalName: string, saveName: string) => {
 
   const blob = await response.blob();
 
-  console.log(blob);
-
   const downloadUrl = window.URL.createObjectURL(blob);
 
   const link = document.createElement("a");
@@ -49,13 +47,16 @@ const FileCarousel = ({ files }: fileProps) => {
         </AccordionTrigger>
         <AccordionContent className="pl-[3rem] pt-1">
           <Carousel
-            className={`${files.length === 1 ? "w-[10rem]" : ""} ${files.length === 2 ? "w-[20rem]" : ""} ${files.length >= 3 ? "w-[30rem]" : ""}`}
+            opts={{
+              align: "start",
+            }}
+            className="sm:max-w-xs max-w-[12rem]"
           >
             <CarouselContent className="-ml-4">
               {files.map((file, index) => (
                 <CarouselItem
                   key={index}
-                  className={`pl-4 ${files.length === 1 ? "basis-full" : ""} ${files.length === 2 ? "md:basis-1/2" : ""} ${files.length >= 3 ? "lg:basis-1/3" : ""}`}
+                  className={`${files.length === 2 && "basis-1/2"} ${files.length >= 3 && "basis-1/3"}`}
                 >
                   {/* 다운로드 컴포넌트로 변경 */}
                   <Card className="shadow-none">

@@ -1,7 +1,6 @@
 import React from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
-import Close from "../../public/svg/Close";
 
 interface FileFormProps {
   setFiles: React.Dispatch<React.SetStateAction<File[]>>;
